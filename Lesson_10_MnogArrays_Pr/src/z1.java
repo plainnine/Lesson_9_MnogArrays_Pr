@@ -30,10 +30,10 @@ public class z1 {
         s1="";
         Scanner scan = new Scanner(System.in);
         System.out.println("\n z1 | Введите c клавиатуры вариант:\n");
-        int slct = scan.nextInt();
+        int slct = 2;
         switch (slct) {
             case 1: {
-                System.out.println("Сформировать третий массив, содержащий элементы обоих массивов;");
+                System.out.println("1) Сформировать третий массив, содержащий элементы обоих массивов;");
                 int[] mas1 = new int[10];
                 for (int i = 0; i < mas01.length; i++) {
                     mas1[i] =  mas01[i];
@@ -43,27 +43,45 @@ public class z1 {
                 }
                 for (int i = 0; i < mas1.length; i++) {
 
-                    s1 = s1 +" mas1["+i+"]: "+ mas1[i] + " |";
+                    s1 = s1 + " mas1["+i+"]: " + mas1[i] + " |";
                 }
-                System.out.println(s1);
+                System.out.println("1) "+s1);
                 s1="";
             }
+            break;
             case 2: {
-                System.out.println("Сформировать третий массив, содержащий элементы обоих массивов без повторений;");
+                System.out.println("2) Сформировать третий массив, содержащий элементы обоих массивов без повторений;");
+
                 int[] mas2 = new int[10];
-                boolean b = true;
-                for (int i = 0; i < mas2.length; i++) {
-                   // for (int i1 = 0; i1 < mas01.length; i1++) {}
-                    b = mas2[i] == findNumberInArray(mas01, mas2[i]);
-                   if (b==true) {mas2[i] = findNumberInArray(mas01, mas2[i]);}
-                    s1 = s1 +" mas2["+i+"]: "+ mas2[i] + " |";
+
+                boolean b1 = true;
+               // boolean b2 = true;
+               // int m0 = 0;
+
+                for (int i = 0; i < mas2.length; i++) { //mas2 массив пуст
+
+                    for (int i1 = 0; i1 < mas01.length; i1++) { //mas01 в массиве повторы
+
+                        for (int i2 = 0; i2 < i; i2++) { //mas2 массив уже не пуст
+                            if (mas2[i2] == mas01[i1]) {
+                                b1 = false;
+
+//System.out.println("i: "+i+") mas2[i]: "+mas2[i]+" | i1: "+i1+") mas01[i1]: " +mas01[i1]+" | i2: "+i2+") mas2[i2]: "+mas2[i2]);
+                            }
+
+                        }
+
+                        if (b1) {mas2[i] = mas01[i1];} // scan.nextLine();
+                    }
+                    s1 = s1 + " mas2["+i+"]: " + mas2[i] + " |";
+                    b1 = true;
                 }
-                System.out.println(s1 + " " +b);
+                System.out.println("\n 2) "+s1 + " " +b1);
                 s1="";
             }
             break;
             default:
-                System.out.println("Такого варианта нет");
+                System.out.println("\n Такого варианта нет");
         }
     }
 
@@ -75,5 +93,4 @@ public class z1 {
         }
         return -1; // возвращаем -1, если элемент не найден
     }
-
 }
