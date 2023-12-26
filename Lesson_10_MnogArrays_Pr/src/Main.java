@@ -9,11 +9,11 @@ public class Main {
        // int slct = scan.nextInt();
         switch (1) {
             case 1:
-                z1 Z1 = new z1();
+                zadach1 Z1 = new zadach1();
                 Z1.zz1();
                 break;
             case 2:
-                z2 Z2 = new z2();
+                zadach2 Z2 = new zadach2();
                 Z2.zz2();
                 break;
             default:
